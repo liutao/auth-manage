@@ -1,0 +1,16 @@
+{
+  "name": "authority-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/relation --recursive"
+  },
+  "author": "liutao",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "mysql": "^2.16.0"
+  }
+}
