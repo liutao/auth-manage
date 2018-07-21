@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/relation --recursive"
+    "test": "mocha ./test/insert.js ./test/relation.js "
   },
   "author": "liutao",
   "license": "ISC",
