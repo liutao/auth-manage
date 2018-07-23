@@ -8,7 +8,7 @@ module.exports = {
 		ug_desc: 'ug_desc1'
 	},
 	usergroupInfo2: {
-		ug_name: 'ug3',
+		ug_name: 'ug2',
 		ug_desc: 'ug_desc2'
 	},
 	authgroupInfo1: {

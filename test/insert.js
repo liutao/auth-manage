@@ -1,8 +1,8 @@
-const {addUser, addUsergroup, addAuth, addAuthgroup, clearData} = require('../lib/insert');
+const {addUser, addUsergroup, addAuth, addAuthgroup} = require('../lib/insert');
 const {expect} = require('chai');
 const errorInfo = require('../common/error');
 const {getConnection, promisify} = require('../common');
-const {userInfo, usergroupInfo1, authInfo1, authgroupInfo1} = require('./data');
+const {userInfo, usergroupInfo1, usergroupInfo2, authInfo1, authInfo2, authInfo3, authInfo4, authInfo5, authgroupInfo1, authgroupInfo2} = require('./data');
 
 describe('insert ', async function() {
 	it('insert user', async function() {
@@ -41,9 +41,13 @@ describe('insert ', async function() {
 		expect(result.errno).to.equal(errorInfo['AUTHGROUP_EXIST'].errno);
 	});
 
-	// it('clearData', async function() {
-	// 	const result = await clearData(userInfo.user_name, usergroupInfo1.ug_name, authInfo1.auth_name, authgroupInfo1.ag_name);
-	// 	expect(result.errno).to.equal(errorInfo['SUCCESS'].errno);
-	// });
+	after(async ()=>{
+		await addUsergroup(usergroupInfo2);
+		await addAuthgroup(authgroupInfo2);
+		await addAuth(authInfo2);
+		await addAuth(authInfo3);
+		await addAuth(authInfo4);
+		await addAuth(authInfo5);
+	});
 });
 
