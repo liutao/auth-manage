@@ -2,7 +2,7 @@ const {checkUserAuth} = require('../lib/check');
 const {expect} = require('chai');
 const errorInfo = require('../common/error');
 const {userInfo, authInfo1, authInfo2, authInfo3, authInfo4, authInfo5} = require('./data');
-const {clearData} = require('../lib/insert');
+const {clearData} = require('../lib/clear');
 
 describe('relation ', async function() {
 
