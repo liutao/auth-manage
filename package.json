@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/insert.js ./test/relation.js ./test/check.js"
+    "test": "mocha ./test/index.js ./test/project.js ./test/insert.js ./test/relation.js ./test/check.js"
   },
   "author": "liutao",
   "license": "ISC",
