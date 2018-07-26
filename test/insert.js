@@ -6,7 +6,7 @@ describe('insert ', async function() {
 	describe('same project', async function() {
 		let authManage = null;
 		before(function(){
-			authManage = require('../index.js')('test');
+			authManage = require('../index.js')({project: 'test'});
 		});
 		it('insert user', async function() {
 			const result = await authManage.addUser(userInfo);
@@ -56,7 +56,7 @@ describe('insert ', async function() {
 	describe('different project', function() {
 		let authManage = null;
 		before(function(){
-			authManage = require('../index.js')('insert2');
+			authManage = require('../index.js')({project: 'insert2'});
 		});
 		it('insert auth is exists but other project', async function() {
 			const result = await authManage.addAuth(authInfo1);

@@ -47,7 +47,7 @@ describe('index ', function() {
 	describe('require authManage and run it with project', function() {
 		let authManage = null;
 		before(function(){
-			authManage = require('../index.js')('project');
+			authManage = require('../index.js')({project: 'project'});
 		});
 		it('check fn is exists', function() {
 			expect(authManage.addUser).to.be.an.instanceof(Function);

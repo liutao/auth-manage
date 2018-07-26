@@ -3,10 +3,11 @@ const relation = require('./lib/relation');
 const check = require('./lib/check');
 const insert = require('./lib/insert');
 const {formatResult} = require('./common');
-
-function authManage(pro){
-	if (pro) {
-		project.setProject(pro);
+const defaultOptions = require('./config');
+function authManage(options){
+	options = Object.assign({}, defaultOptions, options);
+	if (options.project) {
+		project.setProject(options.project);
 	}
 	return {
 		...relation,

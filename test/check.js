@@ -6,7 +6,7 @@ const {clearData} = require('../lib/clear');
 describe('relation ', async function() {
 	let authManage = null;
 	before(function(){
-		authManage = require('../index.js')('test');
+		authManage = require('../index.js')({project: 'test'});
 	});
 	it('user is not exist', async function() {
 		const result = await authManage.checkUserAuth(+new Date, authInfo2.ug_name);

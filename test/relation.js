@@ -6,7 +6,7 @@ const {userInfo, usergroupInfo1, usergroupInfo2, authInfo1, authInfo2, authInfo3
 describe('relation ', async function() {
 	let authManage = null;
 	before(function(){
-		authManage = require('../index.js')('test');
+		authManage = require('../index.js')({project: 'test'});
 	});
 	describe('user & usergroup', async function() {
 		it('user is not exist', async function() {
