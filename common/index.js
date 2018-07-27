@@ -1,15 +1,7 @@
 const mysql = require('mysql');
 const errorInfo = require('./error');
-const userConfig = require('../config');
-
-let defaultConfig = {
-	host: '127.0.0.1',
-	port: 3306,
-	user: 'root'
-}
-
-exports.getConnection = function(){
-	let config = Object.assign({}, defaultConfig, userConfig);
+const defaultOptions = require('../config');
+exports.getConnection = function(config = defaultOptions){
 	return mysql.createConnection({
 		host: config.host,
 		port: config.port,

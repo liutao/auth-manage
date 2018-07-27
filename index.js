@@ -1,27 +1,35 @@
-const project = require('./lib/project');
+const assert = require('assert');
 const relation = require('./lib/relation');
 const check = require('./lib/check');
 const insert = require('./lib/insert');
-const {formatResult} = require('./common');
+
 const defaultOptions = require('./config');
-function authManage(options){
-	options = Object.assign({}, defaultOptions, options);
-	if (options.project) {
-		project.setProject(options.project);
+
+function AuthManage(options){
+	
+	if (!(this instanceof AuthManage)) {
+		return new AuthManage(options);
 	}
-	return {
-		...relation,
-		...check,
-		...insert,
-		...project
+	// if (AuthManage._instance) {
+	// 	return AuthManage._instance;
+	// }
+	assert(options.project, 'project is required');
+
+	if (options.connection) {
+		this._connection = options.connection;
+	} else {
+		assert(options.host, 'mysql host is required');
+		assert(options.user, 'mysql user is required');
+		assert(options.password, 'mysql password is required');
+		assert(options.database, 'mysql database is required');
 	}
+	this._options = Object.assign({}, defaultOptions, options);
 }
 
-Object.assign(authManage, {
+Object.assign(AuthManage.prototype, {
 	...relation,
 	...check,
-	...insert,
-	...project
+	...insert
 });
 
-module.exports = authManage;
+module.exports = AuthManage;

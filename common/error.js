@@ -41,13 +41,5 @@ module.exports = {
 	ROW_EXIST: {
 		errno: 10008,
 		errmsg: 'record is exist'
-	},
-	PROJECT_REQUIRED: {
-		errno: 10009,
-		errmsg: 'projectname is required'
-	},
-	PROJECT_MUSTBE_STRING: {
-		errno: 10010,
-		errmsg: 'projectname muse be string'
 	}
 }
