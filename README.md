@@ -34,6 +34,8 @@ let authManage = new AuthManage({
 
 不管使用哪种方式，项目名称都是必填的。
 
+**注：推荐使用传入`connection`的用法，这样可以自由控制连接的复用和销毁，多次调用时效率会更高。 **
+
 # 方法
 
 ## 添加
@@ -180,3 +182,31 @@ authManage.checkUserAuth('user', 'auth');
 6、查看权限组中是否包含该权限
 
 以上任何一步确认该用户有该权限则返回true，否则执行完所有流程后返回false。
+
+
+
+## 获取部分数据关系信息
+
+### getProjectAuthList
+
+获取项目包含的权限列表。
+
+### getProjectAgList
+
+获取项目包含的权限组列表。
+
+### getUgMembers(ugname)
+
+获取用户组包括的用户列表。
+
+### getAgMembers(agname)
+
+获取权限组包括的权限列表。
+
+### getUserBelongsToGroups(username)
+
+获取用户所属的用户组列表。
+
+### getAuthBelongsToGroups(authname)
+
+获取权限所属的权限组列表。
