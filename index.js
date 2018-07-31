@@ -2,6 +2,7 @@ const assert = require('assert');
 const relation = require('./lib/relation');
 const check = require('./lib/check');
 const insert = require('./lib/insert');
+const obtainData = require('./lib/obtainData');
 
 const defaultOptions = require('./config');
 
@@ -29,7 +30,8 @@ function AuthManage(options){
 Object.assign(AuthManage.prototype, {
 	...relation,
 	...check,
-	...insert
+	...insert,
+	...obtainData
 });
 
 module.exports = AuthManage;

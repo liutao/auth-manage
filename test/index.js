@@ -272,6 +272,39 @@ describe('create connection', function() {
 		});
 	});
 
+	describe('getData ', async function() {
+		it('get authList', async function() {
+			const result = await authManage.getProjectAuthList();
+			expect(result.data).to.have.lengthOf(5);
+		});
+
+		it('get authgroup', async function() {
+			const result = await authManage.getProjectAgList();
+			expect(result.data).to.have.lengthOf(2);
+		});
+
+		it('get usergroup members', async function() {
+			const result = await authManage.getUgMembers(usergroupInfo1.ug_name);
+			expect(result.data[0]).to.have.nested.property('user_name', userInfo.user_name);
+		});
+
+		it('get authgroup members', async function() {
+			const result = await authManage.getAgMembers(authgroupInfo1.ag_name);
+			expect(result.data[0]).to.have.nested.property('auth_name', authInfo3.auth_name);
+		});
+
+		it('get usergroups that the user belongs to', async function() {
+			const result = await authManage.getUserBelongsToGroups(userInfo.user_name);
+			expect(result.data).to.have.lengthOf(2);
+		});
+
+		it('get authgroups that the auth belongs to', async function() {
+			const result = await authManage.getAuthBelongsToGroups(authInfo3.auth_name);
+			expect(result.data[0]).to.have.nested.property('ag_name', authgroupInfo1.ag_name);
+		});
+	});
+
+
 	describe('clearData', async function() {
 		it('clearData', async function() {
 			const result = await clearData();
@@ -506,6 +539,38 @@ describe('create connection', function() {
 		it('user permission denied', async function() {
 			const result = await authManage.checkUserAuth(userInfo.user_name, authInfo5.auth_name);
 			expect(result.data).to.be.false;
+		});
+	});
+
+	describe('getData ', async function() {
+		it('get authList', async function() {
+			const result = await authManage.getProjectAuthList();
+			expect(result.data).to.have.lengthOf(5);
+		});
+
+		it('get authgroup', async function() {
+			const result = await authManage.getProjectAgList();
+			expect(result.data).to.have.lengthOf(2);
+		});
+
+		it('get usergroup members', async function() {
+			const result = await authManage.getUgMembers(usergroupInfo1.ug_name);
+			expect(result.data[0]).to.have.nested.property('user_name', userInfo.user_name);
+		});
+
+		it('get authgroup members', async function() {
+			const result = await authManage.getAgMembers(authgroupInfo1.ag_name);
+			expect(result.data[0]).to.have.nested.property('auth_name', authInfo3.auth_name);
+		});
+
+		it('get usergroups that the user belongs to', async function() {
+			const result = await authManage.getUserBelongsToGroups(userInfo.user_name);
+			expect(result.data).to.have.lengthOf(2);
+		});
+
+		it('get authgroups that the auth belongs to', async function() {
+			const result = await authManage.getAuthBelongsToGroups(authInfo3.auth_name);
+			expect(result.data[0]).to.have.nested.property('ag_name', authgroupInfo1.ag_name);
 		});
 	});
 
